@@ -1,0 +1,10 @@
+.DS_Store
+.git*
+.idea
+.project
+Makefile
+docs/
+examples/
+support/
+test/
+build/

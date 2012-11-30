@@ -1,0 +1,30 @@
+{
+	"name": "attrs.argv",
+	"version": "0.1.0",
+	"description": "process.argv(or etc parameter array) parser to named object.",
+	"author": {
+		"name": "joje",
+		"email": "joje.attrs@gmail.com",
+		"url": "https://github.com/joje6/attrs.argv"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/joje6/attrs.argv.git"
+	},
+	"bugs": {
+		"url": "https://github.com/joje6/attrs.oop/issues"
+	},
+	"main": "attrs.argv.js",
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://www.opensource.org/licenses/MIT"
+		}
+	],
+	"keywords": [
+		"argv",
+		"process.argv",
+		"console parameter",
+		"parameter parser"
+	]
+}
