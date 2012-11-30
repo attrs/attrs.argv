@@ -7,11 +7,11 @@ Installation:
 
 	$ npm install attrs.argv
 
-Execute your app with process arguments:
+Execute your app with arguments:
 
 	$ node yourapp.js --port="8080" -y a=1 -b='2' --c "this is c" -d d -single --key=value c='222' --a=aaa -b bbb
 
-Catch parameter in "yourapp.js":
+Catch arguments in "yourapp.js":
 
 	var argv = require('attrs.argv');
 
