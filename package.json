@@ -1,7 +1,7 @@
 {
 	"name": "attrs.argv",
-	"version": "0.1.6",
-	"description": "process.argv(or etc parameter array) parser to named object.",
+	"version": "0.1.7",
+	"description": "process.argv(or etc cli arguments style array) parser to named object.",
 	"author": {
 		"name": "joje",
 		"email": "joje.attrs@gmail.com",
@@ -12,7 +12,7 @@
 		"url": "git://github.com/joje6/attrs.argv.git"
 	},
 	"bugs": {
-		"url": "https://github.com/joje6/attrs.oop/issues"
+		"url": "https://github.com/joje6/attrs.argv/issues"
 	},
 	"main": "attrs.argv.js",
 	"licenses": [
@@ -24,7 +24,7 @@
 	"keywords": [
 		"argv",
 		"process.argv",
-		"console parameter",
-		"parameter parser"
+		"cli",
+		"cli parser"
 	]
 }

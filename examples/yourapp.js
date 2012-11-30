@@ -13,9 +13,9 @@ var argv = require('../attrs.argv.js');
 	console.log('argv', argv);		//print argv object
 	console.log('port', port);		//8080
 	console.log('y', y);			//true (boolean)
-	console.log('a', a);			//1
-	console.log('b', b);			//2
-	console.log('c', c);			//this is c
+	console.log('a', a);			//[ '1', 'aaa' ]
+	console.log('b', b);			//[ '2', 'bbb' ]
+	console.log('c', c);			//[ 'this is c', '222' ]
 	console.log('d', d);			//d
 	console.log('key', key);		//value
 	console.log('single', single);		//true (boolean)

@@ -7,9 +7,9 @@ Installation:
 
 	$ npm install attrs.argv
 
-Execute your app with process parameter:
+Execute your app with process arguments:
 
-	$ node yourapp.js --port="8080" -y a=1 -b='2' --c "this is c" -d d -single --key=value
+	$ node yourapp.js --port="8080" -y a=1 -b='2' --c "this is c" -d d -single --key=value c='222' --a=aaa -b bbb
 
 Catch parameter in "yourapp.js":
 
@@ -24,20 +24,20 @@ Catch parameter in "yourapp.js":
 	var key = argv.key;
 	var single = argv.single;
 
-	console.log('process.argv', process.argv);	//original process.argv array
-	console.log('argv', argv);			//print argv object
-	console.log('port', port);			//8080
-	console.log('y', y);				//true (boolean)
-	console.log('a', a);				//1
-	console.log('b', b);				//2
-	console.log('c', c);				//this is c
-	console.log('d', d);				//d
-	console.log('key', key);			//value
-	console.log('single', single);			//true (boolean)
+	//console.log('process.argv', process.argv);		//original process.argv array
+	console.log('argv', argv);		//print argv object
+	console.log('port', port);		//8080
+	console.log('y', y);			//true (boolean)
+	console.log('a', a);			//[ '1', 'aaa' ]
+	console.log('b', b);			//[ '2', 'bbb' ]
+	console.log('c', c);			//[ 'this is c', '222' ]
+	console.log('d', d);			//d
+	console.log('key', key);		//value
+	console.log('single', single);		//true (boolean)
 
 
 
-### Parameter formats:
+### Formats:
 	$ node yourapp.js -port
 
 	$ node yourapp.js -port 8080

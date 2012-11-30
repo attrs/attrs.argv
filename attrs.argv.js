@@ -8,6 +8,18 @@ var parse = function( argv ) {
 		}
 		return val;
 	};
+	var sum = function(target, key, value) {
+		if( value !== false && !value ) value = '';
+		if( target[key] ) {
+			if( !(target[key] instanceof Array) ) {
+				target[key] = [target[key]];
+			}
+
+			target[key].push(value);
+		} else {
+			target[key] = value;
+		}
+	};
 
 	for(var index=0; index < argv.length; index++) {
 		var val = argv[index];
@@ -24,14 +36,14 @@ var parse = function( argv ) {
 				value = key.substring(pos + 1);
 				key = key.substring(0,pos);
 
-				r[key] = escapeQuot(value);
+				sum(r, key, escapeQuot(value));
 			} else {
 				value = argv[index + 1];
 				
 				if( !value || value.substring(0,1) == '-' || value.indexOf('=') > 0 ) {
-					r[key] = true;
+					sum(r, key, true);
 				} else {
-					r[key] = escapeQuot(value);
+					sum(r, key, escapeQuot(value));
 					index = index + 1;
 				}
 			}
@@ -39,9 +51,9 @@ var parse = function( argv ) {
 			var value = val.substring(pos + 1);
 			var key = val.substring(0,pos);
 
-			r[key] = escapeQuot(value);
+			sum(r, key, escapeQuot(value));
 		} else {
-			r[val] = true;
+			sum(r, val, true);
 		}
 	};
 
