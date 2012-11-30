@@ -1,6 +1,6 @@
 {
 	"name": "attrs.argv",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "process.argv(or etc parameter array) parser to named object.",
 	"author": {
 		"name": "joje",
