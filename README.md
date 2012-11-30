@@ -13,7 +13,7 @@ Execute your app with process parameter:
 
 Catch parameter in "yourapp.js":
 
-	var argv = require('../attrs.argv.js');
+	var argv = require('attrs.argv');
 
 	var port = argv.port;
 	var y = argv.y;
@@ -38,6 +38,7 @@ Catch parameter in "yourapp.js":
 
 
 ### Parameter formats:
+	$ node yourapp.js -port
 
 	$ node yourapp.js -port 8080
  
@@ -53,5 +54,13 @@ Catch parameter in "yourapp.js":
  
 	$ node yourapp.js --port="8080"
  
-	$ node yourapp.js --port="8080" a=1 -b='2' --c "this is c" -d d -single
+	$ node yourapp.js port="8080"
+ 
+	$ node yourapp.js -port="8080"
+ 
+	$ node yourapp.js -port='8080'
+ 
+	$ node yourapp.js --port='8080'
+ 
+	$ node yourapp.js port='8080'
 
