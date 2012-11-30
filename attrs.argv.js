@@ -26,12 +26,13 @@ var parse = function( argv ) {
 
 				r[key] = escapeQuot(value);
 			} else {
-				value = argv[++index];
-			
+				value = argv[index + 1];
+				
 				if( !value || value.substring(0,1) == '-' || value.indexOf('=') > 0 ) {
 					r[key] = true;
 				} else {
 					r[key] = escapeQuot(value);
+					index = index + 1;
 				}
 			}
 		} else if( (pos = val.indexOf('=')) > 0 ) {
