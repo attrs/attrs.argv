@@ -1,28 +1,34 @@
-var parse = function( argv ) {
-	if( !argv ) argv = process.argv;
-	if( !(argv instanceof Array) ) throw new Error('argv parameter must be array.');
-	var r = {};
-	var escapeQuot = function(val) {
-		if( val && (val.substring(0,1) == '\'' || val.substring(0,1) == '"') && (val.substring(val.length - 1) == '\'' || val.substring(val.length - 1) == '"') ) {
-			val = val.substring(1, val.length - 1);
-		}
-		return val;
-	};
-	var sum = function(target, key, value) {
-		if( value !== false && !value ) value = '';
-		if( target[key] ) {
-			if( !(target[key] instanceof Array) ) {
-				target[key] = [target[key]];
-			}
+var escapeQuot = function(val) {
+	if( val && (val.substring(0,1) == '\'' || val.substring(0,1) == '"') && (val.substring(val.length - 1) == '\'' || val.substring(val.length - 1) == '"') ) {
+		val = val.substring(1, val.length - 1);
+	}
+	return val;
+};
 
-			target[key].push(value);
-		} else {
-			target[key] = value;
+var sum = function(target, key, value) {
+	if( value !== false && !value ) value = '';
+	
+	if( target[key] ) {
+		if( !(target[key] instanceof Array) ) {
+			target[key] = [target[key]];
 		}
-	};
 
-	for(var index=0; index < argv.length; index++) {
+		target[key].push(value);
+	} else {
+		target[key] = value;
+	}
+};
+
+var parse = function( r, argv, mapping ) {
+	argv = argv || {};
+	for(var index=2, cnt=0; index < argv.length; index++,cnt++) {
 		var val = argv[index];
+		if( mapping ) {
+			var key = mapping[cnt];
+			r[key] = val;
+			continue;
+		}
+		
 		var pos;
 		if( val && val.substring(0,1) == '-' ) {
 			var key = val.substring(1);
@@ -60,10 +66,17 @@ var parse = function( argv ) {
 	return r;
 }
 
-var argv = parse();
+function config(mappings) {
+	return parse({}, process.argv, mappings);
+}
 
-argv.parse = function(argv) {
-	parse(argv);
+var argv = function() {};
+argv.prototype = {
+	mapping: function(mappings) {
+		return parse({}, process.argv, mappings);
+	}
 };
 
-module.exports = argv;
+var result = parse(new argv(), process.argv);
+
+module.exports = result;
